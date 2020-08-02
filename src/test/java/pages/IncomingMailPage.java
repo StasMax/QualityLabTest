@@ -44,6 +44,7 @@ public class IncomingMailPage extends BasePage {
 
     /**
      * Конструктор. Проверяет URL и наличие на экране выделенной кнопки 'Входящие'.
+     *
      * @param driver драйвер браузера.
      */
     public IncomingMailPage(WebDriver driver) {
@@ -51,13 +52,11 @@ public class IncomingMailPage extends BasePage {
         PageFactory.initElements(driver, this);
         checkPageIsPresentByUrl("Почтовый аккаунт", driver, PAGE_URL);
         waitForVisible("Выделенная кнопка 'Входящие'", driver, incomingButton);
-        checkElementText("Кнопка Входящие", incomingButton, "Исходящие");
     }
 
-   public final NewMailPage clickCreateLetterButton() {
+    public final NewMailPage clickCreateLetterButton() {
         clickElement("Кнопка 'Написать письмо'", createLetterButton);
         return new NewMailPage(driver);
-   }
-
+    }
 
 }
